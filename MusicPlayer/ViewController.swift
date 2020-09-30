@@ -65,7 +65,40 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.timer.fire()
     }
     
+
     
+    func addPlayPauseButton() {
+        
+        let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(button)
+        
+        button.setImage(UIImage(named: "button_play"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "button_pause"), for: UIControl.State.selected)
+        
+        button.addTarget(self, action: #selector(self.touchUpPlayPauseButton(_:)), for: UIControl.Event.touchUpInside)
+        
+        let centerX: NSLayoutConstraint
+        centerX = button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        
+        let centerY: NSLayoutConstraint
+        centerY = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 0.8, constant: 0)
+        
+        let width: NSLayoutConstraint
+        width = button.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5)
+        
+        let ratio: NSLayoutConstraint
+        ratio = button.heightAnchor.constraint(equalTo: button.widthAnchor, multiplier: 1)
+        
+        centerX.isActive = true
+        centerY.isActive = true
+        width.isActive = true
+        ratio.isActive = true
+        
+        self.playPauseButton = button
+        
+    }
     
     
     

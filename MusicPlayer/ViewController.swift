@@ -44,7 +44,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.progressSlider.value = Float(self.player.currentTime)
     }
     
-    
+    func updateTimeLabelText(time: TimeInterval) {
+        let minute: Int = Int(time / 60)
+        let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
+        let milisecond: Int = Int(time.truncatingRemainder(dividingBy: 1) * 180)
+        
+        let timeText: String = String(format: "%02ld:%02ld:%02ld", minute, second, milisecond)
+        
+        self.timeLabel.text = timeText
+    }
     
     @IBAction func touchUpPlayPauseButton(_ sender: Any) {
         print("touch tapped")

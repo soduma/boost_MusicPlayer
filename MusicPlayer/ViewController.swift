@@ -208,7 +208,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        self.playPauseButton.isSelected = true
+        self.progressSlider.value = 0
+        self.updateTimeLabelText(time: 0)
+        self.invalidateTimer()
+    }
+    
 }

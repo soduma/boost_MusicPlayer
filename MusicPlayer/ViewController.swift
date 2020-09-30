@@ -165,20 +165,27 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.progressSlider = slider
     }
     
-
-    
-    
-    
-    
-    
-    
-    
-    @IBAction func touchUpPlayPauseButton(_ sender: Any) {
-        print("touch tapped")
+    @IBAction func touchUpPlayPauseButton(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            self.player?.play()
+        } else {
+            self.player?.pause()
+        }
+        
+        if sender.isSelected {
+            self.makeAndFireTimer()
+        } else {
+            self.invalidateTimer()
+        }
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        print("slider value changed")
+        self.updateTimeLabelText(time: TimeInterval(sender.value))
+        if sender.isTracking {return}
+        self.player.currentTime = TimeInterval(sender.value)
     }
+    
 }
-

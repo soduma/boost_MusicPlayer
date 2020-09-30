@@ -65,7 +65,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.timer.fire()
     }
     
-
+//    func invalidateTimer() {
+//        self.timer.invalidate()
+//        self.timer = nil
+//    }
+//
+//    func addViewsWithCode() {
+//        self.addPlayPauseButton()
+//        self.addTimeLabel()
+//        self.addProgressSlider()
+//    }
     
     func addPlayPauseButton() {
         
@@ -99,6 +108,38 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.playPauseButton = button
         
     }
+    
+    func addTimeLabel() {
+        let timeLabel: UILabel = UILabel()
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(timeLabel)
+        
+        timeLabel.textColor = UIColor.black
+        timeLabel.textAlignment = NSTextAlignment.center
+        timeLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        
+        let centerX: NSLayoutConstraint
+        centerX = timeLabel.centerXAnchor.constraint(equalTo: self.playPauseButton.centerXAnchor)
+        
+        let top: NSLayoutConstraint
+        top = timeLabel.topAnchor.constraint(equalTo: self.playPauseButton.bottomAnchor, constant: 8)
+        
+        centerX.isActive = true
+        top.isActive = true
+        
+        self.timeLabel = timeLabel
+        self.updateTimeLabelText(time: 0)
+        
+    }
+    
+    
+    
+
+    
+    
+    
+    
     
     
     

@@ -54,6 +54,21 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.timeLabel.text = timeText
     }
     
+    func makeAndFireTimer() {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { [unowned self] (timer: Timer) in
+            
+            if self.progressSlider.isTracking {return}
+            
+            self.updateTimeLabelText(time: self.player.currentTime)
+            self.progressSlider.value = Float(self.player.currentTime)
+        })
+        self.timer.fire()
+    }
+    
+    
+    
+    
+    
     @IBAction func touchUpPlayPauseButton(_ sender: Any) {
         print("touch tapped")
     }

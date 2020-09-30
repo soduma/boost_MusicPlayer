@@ -65,16 +65,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.timer.fire()
     }
     
-//    func invalidateTimer() {
-//        self.timer.invalidate()
-//        self.timer = nil
-//    }
-//
-//    func addViewsWithCode() {
-//        self.addPlayPauseButton()
-//        self.addTimeLabel()
-//        self.addProgressSlider()
-//    }
+    func invalidateTimer() {
+        self.timer.invalidate()
+        self.timer = nil
+    }
+
+    func addViewsWithCode() {
+        self.addPlayPauseButton()
+        self.addTimeLabel()
+        self.addProgressSlider()
+    }
     
     func addPlayPauseButton() {
         
@@ -133,7 +133,37 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         
     }
     
-    
+    func addProgressSlider() {
+        let slider: UISlider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(slider)
+        
+        slider.minimumTrackTintColor = UIColor.red
+        
+        slider.addTarget(self, action: #selector(self.sliderValueChanged(_:)), for: UIControl.Event.valueChanged)
+        
+        let safeAreaGuide: UILayoutGuide = self.view.safeAreaLayoutGuide
+        
+        let centerX: NSLayoutConstraint
+        centerX = slider.centerXAnchor.constraint(equalTo: self.timeLabel.centerXAnchor)
+        
+        let top: NSLayoutConstraint
+        top = slider.topAnchor.constraint(equalTo: self.timeLabel.bottomAnchor, constant: 8)
+        
+        let leading: NSLayoutConstraint
+        leading = slider.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: 16)
+        
+        let trailing: NSLayoutConstraint
+        trailing = slider.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16)
+        
+        centerX.isActive = true
+        top.isActive = true
+        leading.isActive = true
+        trailing.isActive = true
+        
+        self.progressSlider = slider
+    }
     
 
     

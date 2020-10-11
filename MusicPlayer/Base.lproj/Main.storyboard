@@ -17,7 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ZU-cn-FYv">
-                                <rect key="frame" x="113.5" y="323.5" width="187" height="189"/>
+                                <rect key="frame" x="117" y="328" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="AhM-P6-uE1"/>
+                                    <constraint firstAttribute="width" constant="180" id="PkW-pk-XlZ"/>
+                                </constraints>
                                 <state key="normal" image="button_play"/>
                                 <state key="selected" image="button_pause"/>
                                 <connections>
@@ -25,13 +29,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypa-Rx-1pH">
-                                <rect key="frame" x="169" y="532.5" width="76" height="21"/>
+                                <rect key="frame" x="169" y="528" width="76" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rOW-Cs-GxF">
-                                <rect key="frame" x="18" y="573.5" width="378" height="31"/>
+                                <rect key="frame" x="18" y="569" width="378" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="yL2-hy-3bK"/>

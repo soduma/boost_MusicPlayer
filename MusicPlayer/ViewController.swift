@@ -212,7 +212,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        self.playPauseButton.isSelected = true
+        self.playPauseButton.isSelected = false
         self.progressSlider.value = 0
         self.updateTimeLabelText(time: 0)
         self.invalidateTimer()

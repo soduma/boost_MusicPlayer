@@ -26,7 +26,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.initializePlayer()
     }
     
-    func initializePlayer(){
+    func initializePlayer() {
         guard let soundAsset: NSDataAsset = NSDataAsset(name: "sound")
         else {
             print("음원 파일을 가져올 수 없습니다.")
@@ -48,7 +48,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     func updateTimeLabelText(time: TimeInterval) {
         let minute: Int = Int(time / 60)
         let second: Int = Int(time.truncatingRemainder(dividingBy: 60))
-        let milisecond: Int = Int(time.truncatingRemainder(dividingBy: 1) * 180)
+        let milisecond: Int = Int(time.truncatingRemainder(dividingBy: 1) * 100)
         
         let timeText: String = String(format: "%02ld:%02ld:%02ld", minute, second, milisecond)
         
@@ -89,22 +89,22 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         
         button.addTarget(self, action: #selector(self.touchUpPlayPauseButton(_:)), for: UIControl.Event.touchUpInside)
         
-        let centerX: NSLayoutConstraint
-        centerX = button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        
-        let centerY: NSLayoutConstraint
-        centerY = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 0.8, constant: 0)
-        
-        let width: NSLayoutConstraint
-        width = button.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5)
-        
-        let ratio: NSLayoutConstraint
-        ratio = button.heightAnchor.constraint(equalTo: button.widthAnchor, multiplier: 1)
-        
-        centerX.isActive = true
-        centerY.isActive = true
-        width.isActive = true
-        ratio.isActive = true
+//        let centerX: NSLayoutConstraint
+//        centerX = button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+//
+//        let centerY: NSLayoutConstraint
+//        centerY = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 0.8, constant: 0)
+//
+//        let width: NSLayoutConstraint
+//        width = button.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5)
+//
+//        let ratio: NSLayoutConstraint
+//        ratio = button.heightAnchor.constraint(equalTo: button.widthAnchor, multiplier: 1)
+//
+//        centerX.isActive = true
+//        centerY.isActive = true
+//        width.isActive = true
+//        ratio.isActive = true
         
         self.playPauseButton = button
         
@@ -116,18 +116,18 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         
         self.view.addSubview(timeLabel)
         
-        timeLabel.textColor = UIColor.black
-        timeLabel.textAlignment = NSTextAlignment.center
-        timeLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
-        
-        let centerX: NSLayoutConstraint
-        centerX = timeLabel.centerXAnchor.constraint(equalTo: self.playPauseButton.centerXAnchor)
-        
-        let top: NSLayoutConstraint
-        top = timeLabel.topAnchor.constraint(equalTo: self.playPauseButton.bottomAnchor, constant: 8)
-        
-        centerX.isActive = true
-        top.isActive = true
+//        timeLabel.textColor = UIColor.black
+//        timeLabel.textAlignment = NSTextAlignment.center
+//        timeLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+//
+//        let centerX: NSLayoutConstraint
+//        centerX = timeLabel.centerXAnchor.constraint(equalTo: self.playPauseButton.centerXAnchor)
+//
+//        let top: NSLayoutConstraint
+//        top = timeLabel.topAnchor.constraint(equalTo: self.playPauseButton.bottomAnchor, constant: 8)
+//
+//        centerX.isActive = true
+//        top.isActive = true
         
         self.timeLabel = timeLabel
         self.updateTimeLabelText(time: 0)
@@ -140,28 +140,28 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         
         self.view.addSubview(slider)
         
-        slider.minimumTrackTintColor = UIColor.red
+//        slider.minimumTrackTintColor = UIColor.red
         
         slider.addTarget(self, action: #selector(self.sliderValueChanged(_:)), for: UIControl.Event.valueChanged)
         
-        let safeAreaGuide: UILayoutGuide = self.view.safeAreaLayoutGuide
+//        let safeAreaGuide: UILayoutGuide = self.view.safeAreaLayoutGuide
         
-        let centerX: NSLayoutConstraint
-        centerX = slider.centerXAnchor.constraint(equalTo: self.timeLabel.centerXAnchor)
-        
-        let top: NSLayoutConstraint
-        top = slider.topAnchor.constraint(equalTo: self.timeLabel.bottomAnchor, constant: 8)
-        
-        let leading: NSLayoutConstraint
-        leading = slider.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: 16)
-        
-        let trailing: NSLayoutConstraint
-        trailing = slider.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16)
-        
-        centerX.isActive = true
-        top.isActive = true
-        leading.isActive = true
-        trailing.isActive = true
+//        let centerX: NSLayoutConstraint
+//        centerX = slider.centerXAnchor.constraint(equalTo: self.timeLabel.centerXAnchor)
+//
+//        let top: NSLayoutConstraint
+//        top = slider.topAnchor.constraint(equalTo: self.timeLabel.bottomAnchor, constant: 8)
+//
+//        let leading: NSLayoutConstraint
+//        leading = slider.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: 16)
+//
+//        let trailing: NSLayoutConstraint
+//        trailing = slider.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16)
+//
+//        centerX.isActive = true
+//        top.isActive = true
+//        leading.isActive = true
+//        trailing.isActive = true
         
         self.progressSlider = slider
     }
